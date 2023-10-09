@@ -12,7 +12,9 @@ class addTodoModelSheet extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 45,),
-              customTextField(),
+              customTextField(hintText: "Title",),
+              SizedBox(height: 20,),
+              customTextField(hintText: "Content",maxLines: 5,)
         ],
       ),
     );

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_list/screens/splash.dart';
-
-
-
+import 'package:to_do_list/views/todo_view.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -16,11 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        appBarTheme:AppBarTheme(
-          color: Colors.white,
-        )
+        brightness: Brightness.dark
       ),
-      home: splash(),
+      home: toDoView(),
 
     );}}
 

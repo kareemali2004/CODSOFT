@@ -1,7 +1,7 @@
+import 'package:to_do_list/views/widgets/to_do_listview.dart';
+
 import 'custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'custom_todo_icon.dart';
 
 class toDoViewBody extends StatelessWidget {
@@ -17,9 +17,11 @@ class toDoViewBody extends StatelessWidget {
             height: 50,
           ),
           customAppBar(),
-          customToDoItem(),
+          Expanded(child: toDoListView()),
         ],
       ),
     );
   }
 }
+
+

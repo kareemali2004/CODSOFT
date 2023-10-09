@@ -10,7 +10,7 @@ class customAppBar extends StatelessWidget {
     return Row(
       children: [
         Text('ToDo',style: TextStyle(
-          fontSize: 24
+          fontSize: 24,
         ),),
         Spacer(),
         customSearchIcon(),

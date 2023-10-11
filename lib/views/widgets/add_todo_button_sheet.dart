@@ -12,26 +12,66 @@ class addTodoModelSheet extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 45,
-            ),
-            customTextField(
-              hintText: "Title",
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            customTextField(
-              hintText: "Content",
-              maxLines: 5,
-            ),
-            SizedBox(height: 16,),
-            customButton(),
-            SizedBox(height: 16,)
-          ],
-        ),
+        child: addTaskForm(),
+      ),
+    );
+  }
+}
+
+class addTaskForm extends StatefulWidget {
+  const addTaskForm({
+    super.key,
+  });
+
+  @override
+  State<addTaskForm> createState() => _addTaskFormState();
+}
+
+class _addTaskFormState extends State<addTaskForm> {
+  final GlobalKey<FormState>formKey=GlobalKey();
+  AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
+  String? title,subTitle;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 45,
+          ),
+          customTextField(
+            onSaved: (value){
+              title=value;
+            },
+            hintText: "Title",
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          customTextField(
+            onSaved: (value){
+              subTitle=value;
+            },
+            hintText: "Content",
+            maxLines: 5,
+          ),
+          SizedBox(height: 16,),
+          customButton(
+            onTap: (){
+              if(formKey.currentState!.validate()){
+                formKey.currentState!.save();
+              }
+              else{
+                autovalidateMode=AutovalidateMode.always;
+                setState(() {
+
+                });
+              }
+            },
+          ),
+          SizedBox(height: 16,)
+        ],
       ),
     );
   }

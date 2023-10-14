@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:to_do_list/constants.dart';
+import 'package:to_do_list/models/task_model.dart';
 import 'package:to_do_list/views/todo_view.dart';
 void main() async{
   await Hive.initFlutter();
   await Hive.openBox(kTasksBox);
+  Hive.registerAdapter(TaskModelAdapter());
   runApp(const MyApp());
 }
 

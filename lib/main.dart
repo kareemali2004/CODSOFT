@@ -4,8 +4,10 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:to_do_list/constants.dart';
 import 'package:to_do_list/cubits/add_task_cubit/add_task_cubit.dart';
 import 'package:to_do_list/models/task_model.dart';
+import 'package:to_do_list/simple_observer.dart';
 import 'package:to_do_list/views/todo_view.dart';
 void main() async{
+  Bloc.observer=SimpleBlockObserver();
   await Hive.initFlutter();
   await Hive.openBox(kTasksBox);
   Hive.registerAdapter(TaskModelAdapter());

@@ -46,20 +46,25 @@ class _addTaskFormState extends State<addTaskForm> {
           SizedBox(
             height: 16,
           ),
-          customButton(
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                var taskModel = TaskModel(
-                    title: title!,
-                    subTitle: subTitle!,
-                    date: DateTime.now().toString(),
-                    color: Colors.blue.value);
-                BlocProvider.of<AddTaskCubit>(context).addTask(taskModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddTaskCubit, AddTaskState>(
+            builder: (context, state) {
+              return customButton(
+                isLoading: state is AddTaskLoading ?true:false,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var taskModel = TaskModel(
+                        title: title!,
+                        subTitle: subTitle!,
+                        date: DateTime.now().toString(),
+                        color: Colors.blue.value);
+                    BlocProvider.of<AddTaskCubit>(context).addTask(taskModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
           SizedBox(

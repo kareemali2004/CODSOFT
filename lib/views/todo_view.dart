@@ -14,6 +14,7 @@ class toDoView extends StatelessWidget {
 
         onPressed: () {
         showModalBottomSheet(
+          isScrollControlled: true,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30)
             ),

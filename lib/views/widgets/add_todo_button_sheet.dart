@@ -6,27 +6,26 @@ import 'package:to_do_list/views/widgets/add_task_form.dart';
 
 class addTodoModelSheet extends StatelessWidget {
   const addTodoModelSheet({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: SingleChildScrollView(
+    return BlocProvider(
+      create: (context) => AddTaskCubit(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: BlocConsumer<AddTaskCubit, AddTaskState>(
           listener: (context, state) {
-             if(state is AddTaskFaliuer){
+            if (state is AddTaskFaliuer) {
               print("failed ${state.erorMsg}");
-             }
-             if(state is AddTaskSuccess){
+            }
+            if (state is AddTaskSuccess) {
               Navigator.pop(context);
-             }
-             
+            }
           },
           builder: (context, state) {
-            
-            return  ModalProgressHUD(
-              inAsyncCall: state is AddTaskLoading?true :false,
-              child: addTaskForm());
+            return ModalProgressHUD(
+                inAsyncCall: state is AddTaskLoading ? true : false,
+                child: SingleChildScrollView(child: addTaskForm()));
           },
         ),
       ),

@@ -7,10 +7,10 @@ import 'package:to_do_list/models/task_model.dart';
 import 'package:to_do_list/simple_observer.dart';
 import 'package:to_do_list/views/todo_view.dart';
 void main() async{
-  Bloc.observer=SimpleBlockObserver();
   await Hive.initFlutter();
-  await Hive.openBox(kTasksBox);
-  Hive.registerAdapter(TaskModelAdapter());
+  Bloc.observer=SimpleBlockObserver();
+ Hive.registerAdapter(TaskModelAdapter());
+  await Hive.openBox<TaskModel>(kTasksBox);
   runApp(const MyApp());
 }
 
@@ -20,18 +20,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context)=>AddTaskCubit()),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: 'Poppins',
-          brightness: Brightness.dark
-        ),
-        home: toDoView(),
-    
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+        brightness: Brightness.dark
       ),
+      home: toDoView(),
+    
     );}}
 

@@ -49,6 +49,7 @@ class _addTaskFormState extends State<addTaskForm> {
             height: 16,
           ),
            colorsListView(),
+          SizedBox(height: 16,),
           BlocBuilder<AddTaskCubit, AddTaskState>(
             builder: (context, state) {
               return customButton(

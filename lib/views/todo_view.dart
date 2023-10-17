@@ -22,7 +22,7 @@ class toDoView extends StatelessWidget {
             return  addTodoModelSheet();
         });
       },
-        child: Icon(Icons.add,size: 30,),
+        child: Icon(Icons.check_box,size: 30,),
       ),
       body: toDoViewBody(),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_list/cubits/add_task_cubit/add_task_cubit.dart';
 import 'package:to_do_list/models/task_model.dart';
+import 'package:to_do_list/views/widgets/colors_list_view.dart';
 import 'package:to_do_list/views/widgets/custom_button.dart';
 import 'package:to_do_list/views/widgets/custom_text_field.dart';
 import 'package:intl/intl.dart';
@@ -47,6 +48,7 @@ class _addTaskFormState extends State<addTaskForm> {
           SizedBox(
             height: 16,
           ),
+           colorsListView(),
           BlocBuilder<AddTaskCubit, AddTaskState>(
             builder: (context, state) {
               return customButton(

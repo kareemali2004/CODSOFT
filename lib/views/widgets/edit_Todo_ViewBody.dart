@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_list/constants.dart';
 import 'package:to_do_list/cubits/task_cubit/task_cubit_cubit.dart';
 import 'package:to_do_list/models/task_model.dart';
 import 'package:to_do_list/views/widgets/custom_app_bar.dart';
 import 'package:to_do_list/views/widgets/custom_text_field.dart';
+
+import 'colors_list_view.dart';
+import 'edit_Tasks_Colors_List.dart';
 
 class editTodoViewBody extends StatefulWidget {
   const editTodoViewBody({super.key, required this.tasks});
@@ -54,10 +58,20 @@ class _editTodoViewBodyState extends State<editTodoViewBody> {
               ,
               hintText: widget.tasks.subTitle,
               maxLines: 5,
-            )
+            ),
+            SizedBox(height: 20,),
+            editTaskColorsList(
+                task: widget.tasks,
+            ),
           ],
+
+
         ),
+
       ),
+
     );
   }
 }
+
+

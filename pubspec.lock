@@ -400,6 +400,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+<<<<<<< HEAD
   modal_progress_hud_nsn:
     dependency: "direct main"
     description:
@@ -408,6 +409,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.0"
+=======
+>>>>>>> e16ec808d7c5244908dbae1157e4315a2f6c3a03
   nested:
     dependency: transitive
     description:

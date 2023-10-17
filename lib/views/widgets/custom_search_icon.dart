@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-class customBarIcon extends StatelessWidget {
-  const customBarIcon({super.key, required this.icon});
+class customIcon extends StatelessWidget {
+  const customIcon({super.key, required this.icon, this.onTap});
 final IconData icon;
+final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,8 +13,13 @@ final IconData icon;
         borderRadius: BorderRadius.circular(16)
       ),
       child: Center(
-        child: Icon(icon,size: 28,),
+        child: GestureDetector(
+          onTap: 
+          onTap,
+          
+          child: Icon(icon,size: 28,)),
       ),
+      
     );
   }
 }

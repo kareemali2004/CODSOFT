@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:to_do_list/cubits/task_cubit/task_cubit_cubit.dart';
 import 'package:to_do_list/models/task_model.dart';
 import 'package:to_do_list/views/editTodoView.dart';
@@ -14,7 +13,7 @@ class customToDoItem extends StatelessWidget {
       onTap: (){
         Navigator.push(context,
         MaterialPageRoute(builder: (context){
-          return editTodoView();
+          return editTodoView(tasks: tasks,);
         })
         );
       },
@@ -38,6 +37,7 @@ class customToDoItem extends StatelessWidget {
                       color: Colors.black.withOpacity(.4), fontSize: 18),
                 ),
               ),
+      
               trailing: IconButton(
                 onPressed: () {
                   tasks.delete();

@@ -4,6 +4,7 @@ import 'package:to_do_list/cubits/add_task_cubit/add_task_cubit.dart';
 import 'package:to_do_list/models/task_model.dart';
 import 'package:to_do_list/views/widgets/custom_button.dart';
 import 'package:to_do_list/views/widgets/custom_text_field.dart';
+import 'package:intl/intl.dart';
 
 class addTaskForm extends StatefulWidget {
   const addTaskForm({
@@ -56,7 +57,7 @@ class _addTaskFormState extends State<addTaskForm> {
                     var taskModel = TaskModel(
                         title: title!,
                         subTitle: subTitle!,
-                        date: DateTime.now().toString(),
+                        date: DateFormat('dd-mm-yyyy  HH:mm').format(DateTime.now()).toString()  ,
                         color: Colors.blue.value);
                     BlocProvider.of<AddTaskCubit>(context).addTask(taskModel);
                   } else {

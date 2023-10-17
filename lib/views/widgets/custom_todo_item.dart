@@ -37,7 +37,9 @@ class customToDoItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  tasks.delete();
+                },
                 icon: Icon(
                   Icons.check_box_outline_blank,
                   size: 30,

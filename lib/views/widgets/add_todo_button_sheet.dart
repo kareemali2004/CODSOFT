@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:to_do_list/cubits/add_task_cubit/add_task_cubit.dart';
+import 'package:to_do_list/cubits/task_cubit/task_cubit_cubit.dart';
 import 'package:to_do_list/views/widgets/add_task_form.dart';
 
 class addTodoModelSheet extends StatelessWidget {
@@ -14,10 +15,12 @@ class addTodoModelSheet extends StatelessWidget {
       child: BlocConsumer<AddTaskCubit, AddTaskState>(
         listener: (context, state) {
           if (state is AddTaskFaliuer) {
-            print("failed ${state.erorMsg}");
+           
           }
           if (state is AddTaskSuccess) {
+            BlocProvider.of<TaskCubit>(context).fetchAllTasks();
             Navigator.pop(context);
+            
           }
         },
         builder: (context, state) {

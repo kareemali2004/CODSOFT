@@ -11,27 +11,24 @@ class toDoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TaskCubit(),
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-                isScrollControlled: true,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)),
-                context: context,
-                builder: (context) {
-                  return addTodoModelSheet();
-                });
-          },
-          child: Icon(
-            Icons.add,
-            size: 30,
-          ),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+              isScrollControlled: true,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              context: context,
+              builder: (context) {
+                return addTodoModelSheet();
+              });
+        },
+        child: Icon(
+          Icons.add,
+          size: 30,
         ),
-        body: toDoViewBody(),
       ),
+      body: toDoViewBody(),
     );
   }
 }

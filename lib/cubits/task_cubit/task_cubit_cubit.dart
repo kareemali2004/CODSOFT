@@ -13,6 +13,6 @@ class TaskCubit extends Cubit<TaskCubitState> {
 
     var taskBox = Hive.box<TaskModel>(kTasksBox);
      tasks=taskBox.values.toList();
-    
+    emit(TaskCubitSuccess());
   }
 }

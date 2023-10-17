@@ -4,5 +4,6 @@ part of 'task_cubit_cubit.dart';
 sealed class TaskCubitState {}
 
 final class TaskCubitInitial extends TaskCubitState {}
+final class TaskCubitSuccess extends TaskCubitState {}
 
 

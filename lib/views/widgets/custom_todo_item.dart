@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:to_do_list/cubits/task_cubit/task_cubit_cubit.dart';
 import 'package:to_do_list/models/task_model.dart';
 import 'package:to_do_list/views/editTodoView.dart';
 
@@ -39,6 +41,7 @@ class customToDoItem extends StatelessWidget {
               trailing: IconButton(
                 onPressed: () {
                   tasks.delete();
+                  BlocProvider.of<TaskCubit>(context).fetchAllTasks();
                 },
                 icon: Icon(
                   Icons.check_box_outline_blank,

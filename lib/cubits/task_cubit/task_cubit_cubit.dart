@@ -6,16 +6,13 @@ import 'package:to_do_list/models/task_model.dart';
 
 part 'task_cubit_state.dart';
 
-class TaskCubit extends Cubit<TaskCubitState>  {
+class TaskCubit extends Cubit<TaskCubitState> {
   TaskCubit() : super(TaskCubitInitial());
-  fetchAllTasks(){
-  
-    try {
-      var taskBox = Hive.box<TaskModel>(kTasksBox);
-     
-      emit(TaskCubitSucccess(taskBox.values.toList()));
-    } catch (e) {
-      emit(TaskCubitFailuer(e.toString()));
-    }
+  List<TaskModel>? tasks;
+  fetchAllTasks() {
+
+    var taskBox = Hive.box<TaskModel>(kTasksBox);
+     tasks=taskBox.values.toList();
+    
   }
 }

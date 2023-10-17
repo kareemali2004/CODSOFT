@@ -26,7 +26,7 @@ class toDoView extends StatelessWidget {
                 });
           },
           child: Icon(
-            Icons.check_box,
+            Icons.add,
             size: 30,
           ),
         ),

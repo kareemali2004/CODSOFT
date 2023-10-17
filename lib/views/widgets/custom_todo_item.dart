@@ -38,8 +38,8 @@ class customToDoItem extends StatelessWidget {
               trailing: IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  FontAwesomeIcons.trash,
-                  size: 24,
+                  Icons.check_box_outline_blank,
+                  size: 30,
                 ),
                 color: Colors.black,
               ),

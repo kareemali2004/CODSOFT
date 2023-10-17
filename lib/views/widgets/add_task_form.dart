@@ -46,7 +46,7 @@ class _addTaskFormState extends State<addTaskForm> {
             maxLines: 5,
           ),
           SizedBox(
-            height: 16,
+            height: 17,
           ),
            colorsListView(),
           SizedBox(height: 16,),

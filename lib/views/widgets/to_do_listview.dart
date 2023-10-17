@@ -21,7 +21,7 @@ class toDoListView extends StatelessWidget {
 
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
-              child: customToDoItem(),
+              child: customToDoItem(tasks:tasks[index],),
             );
           }),
         );

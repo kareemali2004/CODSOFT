@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:to_do_list/models/task_model.dart';
 import 'package:to_do_list/views/editTodoView.dart';
 
 class customToDoItem extends StatelessWidget {
-  const customToDoItem({super.key});
-
+  const customToDoItem({super.key, required this.tasks});
+   final TaskModel tasks;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,19 +19,19 @@ class customToDoItem extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-            color: Color(0xffFFcc80), borderRadius: BorderRadius.circular(16)),
+            color: Color(tasks.color), borderRadius: BorderRadius.circular(16)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
               title: Text(
-                "Flutter Tips",
+                tasks.title,
                 style: TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: Text(
-                  "Build your career with Kareem ali",
+                 tasks.subTitle,
                   style: TextStyle(
                       color: Colors.black.withOpacity(.4), fontSize: 18),
                 ),
@@ -47,7 +48,7 @@ class customToDoItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-                "May 21,2022",
+                tasks.date,
                 style:
                     TextStyle(fontSize: 16, color: Colors.black.withOpacity(.4)),
               ),

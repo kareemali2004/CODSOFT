@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_list/cubits/add_task_cubit/add_task_cubit.dart';
+
 
 class colorItem extends StatelessWidget {
   const colorItem({super.key, required this.isActive, required this.color});
@@ -11,7 +14,7 @@ final Color color;
       backgroundColor: color,
       radius: 34,
       child: CircleAvatar(
-        backgroundColor: Colors.blue,
+        backgroundColor: color,
         radius: 32,
       ),
     ): CircleAvatar(
@@ -47,9 +50,11 @@ List<Color>colors=[
           child: GestureDetector(
             onTap: (){
               currentIndex=index;
+              BlocProvider.of<AddTaskCubit>(context).color=colors[index];
              setState(() {
 
              });
+
             },
             child: colorItem(
               color: colors[index],
